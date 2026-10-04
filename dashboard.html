@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | Navjeevan Student Hub</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-logo">
+                N
+            </div>
+
+            <div>
+                <h2>Navjeevan</h2>
+                <p>Student Hub</p>
+            </div>
+
+        </div>
+
+
+        <nav class="navigation">
+
+            <button
+                class="nav-item active"
+                type="button"
+                onclick="location.href='dashboard.html'">
+
+                <span>⌂</span>
+                Dashboard
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                type="button"
+                onclick="location.href='subjects.html'">
+
+                <span>▣</span>
+                Subjects
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                type="button"
+                onclick="location.href='timetable.html'">
+
+                <span>◷</span>
+                Timetable
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                type="button"
+                onclick="location.href='assignments.html'">
+
+                <span>✓</span>
+                Assignments
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                type="button"
+                onclick="location.href='notes.html'">
+
+                <span>▤</span>
+                Notes
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                type="button"
+                onclick="location.href='progress.html'">
+
+                <span>◉</span>
+                Progress
+
+            </button>
+
+        </nav>
+
+
+        <!-- SIDEBAR BOTTOM -->
+
+        <div class="sidebar-bottom">
+
+            <button
+                class="nav-item"
+                type="button"
+                onclick="location.href='settings.html'">
+
+                <span>⚙</span>
+                Settings
+
+            </button>
+
+
+            <button
+                class="nav-item logout"
+                type="button"
+                onclick="location.href='index.html'">
+
+                <span>↪</span>
+                Logout
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- =================================================
+             HEADER
+        ================================================== -->
+
+        <header class="dashboard-header">
+
+            <div>
+
+                <p class="small-title">
+                    STUDENT DASHBOARD
+                </p>
+
+                <h1>
+                    Good morning, Samarth.
+                </h1>
+
+                <p class="header-subtitle">
+                    Here's what's happening with your studies.
+                </p>
+
+            </div>
+
+
+            <button
+                class="theme-toggle"
+                id="theme-toggle"
+                type="button">
+
+                <span id="theme-icon">☾</span>
+
+                <span id="theme-text">
+                    Dark
+                </span>
+
+            </button>
+
+        </header>
+
+
+
+        <!-- =================================================
+             STAT CARDS
+        ================================================== -->
+
+        <section class="stats-grid">
+
+
+            <div class="stat-card">
+
+                <span class="stat-label">
+                    SUBJECTS
+                </span>
+
+                <strong>
+                    10
+                </strong>
+
+                <p>
+                    Current semester
+                </p>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <span class="stat-label">
+                    ATTENDANCE
+                </span>
+
+                <strong>
+                    --
+                </strong>
+
+                <p>
+                    Coming soon
+                </p>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <span class="stat-label">
+                    ASSIGNMENTS
+                </span>
+
+                <strong>
+                    0
+                </strong>
+
+                <p>
+                    Pending
+                </p>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <span class="stat-label">
+                    STUDY STREAK
+                </span>
+
+                <strong>
+                    0
+                </strong>
+
+                <p>
+                    Days
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             MAIN DASHBOARD PANELS
+        ================================================== -->
+
+        <section class="dashboard-grid">
+
+
+            <!-- TODAY'S CLASSES -->
+
+            <div class="dashboard-panel">
+
+                <div class="panel-heading">
+
+                    <div>
+
+                        <p class="small-title">
+                            TODAY
+                        </p>
+
+                        <h2>
+                            Today's Classes
+                        </h2>
+
+                    </div>
+
+
+                    <button
+                        class="text-button"
+                        type="button"
+                        onclick="location.href='timetable.html'">
+
+                        View timetable →
+
+                    </button>
+
+                </div>
+
+
+
+                <div class="class-list">
+
+
+                    <div class="class-item">
+
+                        <div class="class-time">
+                            10:30 AM
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Engineering Chemistry
+                            </h3>
+
+                            <p>
+                                Mrs. Amarja Jadhav
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="class-item">
+
+                        <div class="class-time">
+                            11:30 AM
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Engineering Mathematics
+                            </h3>
+
+                            <p>
+                                Mrs. Tejashree Chaudhari
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="class-item">
+
+                        <div class="class-time">
+                            1:00 PM
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Communication Skills
+                            </h3>
+
+                            <p>
+                                Mrs. Deepali Y. Patil
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SUBJECTS -->
+
+            <div class="dashboard-panel">
+
+                <div class="panel-heading">
+
+                    <div>
+
+                        <p class="small-title">
+                            ACADEMICS
+                        </p>
+
+                        <h2>
+                            Your Subjects
+                        </h2>
+
+                    </div>
+
+
+                    <button
+                        class="text-button"
+                        type="button"
+                        onclick="location.href='subjects.html'">
+
+                        View all →
+
+                    </button>
+
+                </div>
+
+
+
+                <div class="subject-list">
+
+
+                    <div class="subject-row">
+
+                        <span class="subject-dot"></span>
+
+                        <div>
+
+                            <h3>
+                                Engineering Mathematics-I
+                            </h3>
+
+                            <p>
+                                Mrs. Tejashree Chaudhari
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="subject-row">
+
+                        <span class="subject-dot"></span>
+
+                        <div>
+
+                            <h3>
+                                Engineering Chemistry
+                            </h3>
+
+                            <p>
+                                Mrs. Amarja Jadhav
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="subject-row">
+
+                        <span class="subject-dot"></span>
+
+                        <div>
+
+                            <h3>
+                                Engineering Mechanics
+                            </h3>
+
+                            <p>
+                                Mrs. Prajakta Sawant
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="subject-row">
+
+                        <span class="subject-dot"></span>
+
+                        <div>
+
+                            <h3>
+                                Programming for Problem Solving
+                            </h3>
+
+                            <p>
+                                Mrs. Harshala Kamble
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             ANNOUNCEMENTS
+        ================================================== -->
+
+        <section class="announcement">
+
+
+            <div class="announcement-icon">
+                !
+            </div>
+
+
+            <div>
+
+                <p class="small-title">
+                    ANNOUNCEMENTS
+                </p>
+
+                <h2>
+                    No new announcements
+                </h2>
+
+                <p>
+                    College announcements and important updates
+                    will appear here.
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script src="js/app.js"></script>
+
+</body>
+
+</html>

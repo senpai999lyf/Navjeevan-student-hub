@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Engineering Mathematics-I | Navjeevan Student Hub</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="brand-logo">N</div>
+
+            <div>
+                <h2>Navjeevan</h2>
+                <p>Student Hub</p>
+            </div>
+        </div>
+
+        <nav class="navigation">
+
+            <button class="nav-item"
+                    onclick="location.href='dashboard.html'">
+                <span>⌂</span>
+                Dashboard
+            </button>
+
+            <button class="nav-item"
+                    onclick="location.href='subjects.html'">
+                <span>▣</span>
+                Subjects
+            </button>
+
+            <button class="nav-item"
+                    onclick="location.href='timetable.html'">
+                <span>◷</span>
+                Timetable
+            </button>
+
+            <button class="nav-item">
+                <span>✓</span>
+                Assignments
+            </button>
+
+            <button class="nav-item">
+                <span>▤</span>
+                Notes
+            </button>
+
+            <button class="nav-item">
+                <span>◉</span>
+                Progress
+            </button>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <button class="nav-item">
+                <span>⚙</span>
+                Settings
+            </button>
+
+            <button class="nav-item logout"
+                    onclick="location.href='index.html'">
+                <span>↪</span>
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="dashboard-main">
+
+        <header class="dashboard-header">
+
+            <div>
+
+                <p class="small-title">
+                    A1 • SEMESTER 1 • BSC
+                </p>
+
+                <h1>Engineering Mathematics-I</h1>
+
+                <p class="header-subtitle">
+                    Course Code: 24AF1000BS101
+                    &nbsp;•&nbsp;
+                    3 Credits
+                </p>
+
+            </div>
+
+            <button
+                class="theme-toggle"
+                id="theme-toggle"
+                type="button">
+
+                <span id="theme-icon">☾</span>
+                <span id="theme-text">Dark</span>
+
+            </button>
+
+        </header>
+
+
+        <!-- COURSE INFO -->
+
+        <section class="math-info-grid">
+
+            <div class="math-info-card">
+
+                <span class="stat-label">
+                    COURSE
+                </span>
+
+                <strong>
+                    Engineering<br>
+                    Mathematics-I
+                </strong>
+
+            </div>
+
+            <div class="math-info-card">
+
+                <span class="stat-label">
+                    CODE
+                </span>
+
+                <strong>
+                    24AF1000BS101
+                </strong>
+
+            </div>
+
+            <div class="math-info-card">
+
+                <span class="stat-label">
+                    CREDITS
+                </span>
+
+                <strong>
+                    3
+                </strong>
+
+            </div>
+
+            <div class="math-info-card">
+
+                <span class="stat-label">
+                    LECTURES
+                </span>
+
+                <strong>
+                    3 hrs/week
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROGRESS -->
+
+        <section class="dashboard-panel math-progress-panel">
+
+            <div class="panel-heading">
+
+                <div>
+
+                    <p class="small-title">
+                        YOUR PROGRESS
+                    </p>
+
+                    <h2>
+                        Syllabus Progress
+                    </h2>
+
+                </div>
+
+                <strong class="progress-number">
+                    0%
+                </strong>
+
+            </div>
+
+            <div class="progress-track">
+                <div class="progress-fill"></div>
+            </div>
+
+            <p class="progress-description">
+                No topics completed yet.
+            </p>
+
+        </section>
+
+
+        <!-- SYLLABUS -->
+
+        <section class="syllabus-section">
+
+            <div class="section-heading">
+
+                <p class="small-title">
+                    COURSE CONTENT
+                </p>
+
+                <h2>
+                    Semester-I Syllabus
+                </h2>
+
+            </div>
+
+
+            <!-- UNIT 1 -->
+
+            <article class="syllabus-unit">
+
+                <div class="unit-number">
+                    01
+                </div>
+
+                <div class="unit-content">
+
+                    <div class="unit-heading">
+
+                        <div>
+
+                            <p class="subject-type">
+                                UNIT I • 6 HOURS
+                            </p>
+
+                            <h2>
+                                Linear Algebra — Matrices
+                            </h2>
+
+                        </div>
+
+                        <span class="unit-status">
+                            UPCOMING
+                        </span>
+
+                    </div>
+
+                    <ul>
+
+                        <li>
+                            Inverse of a matrix by Gauss-Jordan method
+                        </li>
+
+                        <li>
+                            Rank of a matrix
+                        </li>
+
+                        <li>
+                            Normal form of a matrix
+                        </li>
+
+                        <li>
+                            Consistency of non-homogeneous and homogeneous
+                            systems of linear equations
+                        </li>
+
+                        <li>
+                            Eigenvalues and eigenvectors
+                        </li>
+
+                        <li>
+                            Properties of eigenvalues and eigenvectors
+                            without proofs
+                        </li>
+
+                        <li>
+                            Cayley-Hamilton's theorem without proof
+                            and its applications
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </article>
+
+
+            <!-- UNIT 2 -->
+
+            <article class="syllabus-unit">
+
+                <div class="unit-number">
+                    02
+                </div>
+
+                <div class="unit-content">
+
+                    <div class="unit-heading">
+
+                        <div>
+
+                            <p class="subject-type">
+                                UNIT II • 6 HOURS
+                            </p>
+
+                            <h2>
+                                Partial Differentiation
+                            </h2>
+
+                        </div>
+
+                        <span class="unit-status">
+                            UPCOMING
+                        </span>
+
+                    </div>
+
+                    <ul>
+
+                        <li>
+                            Partial derivatives of first and higher orders
+                        </li>
+
+                        <li>
+                            Homogeneous functions
+                        </li>
+
+                        <li>
+                            Euler's theorem for functions containing
+                            two and three variables
+                        </li>
+
+                        <li>
+                            Total derivatives
+                        </li>
+
+                        <li>
+                            Change of variables
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </article>
+
+
+            <!-- UNIT 3 -->
+
+            <article class="syllabus-unit">
+
+                <div class="unit-number">
+                    03
+                </div>
+
+                <div class="unit-content">
+
+                    <div class="unit-heading">
+
+                        <div>
+
+                            <p class="subject-type">
+                                UNIT III • 6 HOURS
+                            </p>
+
+                            <h2>
+                                Applications of Partial Differentiation
+                            </h2>
+
+                        </div>
+
+                        <span class="unit-status">
+                            UPCOMING
+                        </span>
+
+                    </div>
+
+                    <ul>
+
+                        <li>
+                            Jacobians and their properties
+                        </li>
+
+                        <li>
+                            Taylor's and Maclaurin's theorems
+                            without proofs for functions of two variables
+                        </li>
+
+                        <li>
+                            Maxima and minima of functions of two variables
+                        </li>
+
+                        <li>
+                            Lagrange's method of undetermined multipliers
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </article>
+
+
+            <!-- UNIT 4 -->
+
+            <article class="syllabus-unit">
+
+                <div class="unit-number">
+                    04
+                </div>
+
+                <div class="unit-content">
+
+                    <div class="unit-heading">
+
+                        <div>
+
+                            <p class="subject-type">
+                                UNIT IV • 6 HOURS
+                            </p>
+
+                            <h2>
+                                Reduction Formulae and Tracing of Curves
+                            </h2>
+
+                        </div>
+
+                        <span class="unit-status">
+                            UPCOMING
+                        </span>
+
+                    </div>
+
+                    <ul>
+
+                        <li>
+                            Reduction formulae
+                        </li>
+
+                        <li>
+                            Tracing of standard curves in Cartesian,
+                            parametric and polar forms
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </article>
+
+
+            <!-- UNIT 5 -->
+
+            <article class="syllabus-unit">
+
+                <div class="unit-number">
+                    05
+                </div>
+
+                <div class="unit-content">
+
+                    <div class="unit-heading">
+
+                        <div>
+
+                            <p class="subject-type">
+                                UNIT V • 6 HOURS
+                            </p>
+
+                            <h2>
+                                Multiple Integral
+                            </h2>
+
+                        </div>
+
+                        <span class="unit-status">
+                            UPCOMING
+                        </span>
+
+                    </div>
+
+                    <ul>
+
+                        <li>
+                            Double integration in Cartesian coordinates
+                        </li>
+
+                        <li>
+                            Double integration in polar coordinates
+                        </li>
+
+                        <li>
+                            Change of order of integration
+                        </li>
+
+                        <li>
+                            Triple integrals
+                        </li>
+
+                        <li>
+                            Applications to area, volume and surface area
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- BACK BUTTON -->
+
+        <div class="back-section">
+
+            <button
+                class="back-button"
+                onclick="location.href='subjects.html'">
+
+                ← Back to Subjects
+
+            </button>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<script src="js/app.js"></script>
+
+</body>
+
+</html>

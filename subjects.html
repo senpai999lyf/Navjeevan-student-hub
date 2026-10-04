@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Subjects | Navjeevan Student Hub</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-brand">
+                <div class="brand-logo">N</div>
+
+                <div>
+                    <h2>Navjeevan</h2>
+                    <p>Student Hub</p>
+                </div>
+            </div>
+
+            <nav class="navigation">
+
+                <button class="nav-item"
+                    onclick="location.href='dashboard.html'">
+                    <span>⌂</span>
+                    Dashboard
+                </button>
+
+                <button class="nav-item active">
+                    <span>▣</span>
+                    Subjects
+                </button>
+
+                <button class="nav-item"
+                    onclick="location.href='timetable.html'">
+                    <span>◷</span>
+                    Timetable
+                </button>
+
+                <button class="nav-item">
+                    <span>✓</span>
+                    Assignments
+                </button>
+
+                <button class="nav-item">
+                    <span>▤</span>
+                    Notes
+                </button>
+
+                <button class="nav-item">
+                    <span>◉</span>
+                    Progress
+                </button>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <button class="nav-item">
+                    <span>⚙</span>
+                    Settings
+                </button>
+
+                <button
+                    class="nav-item logout"
+                    onclick="location.href='index.html'">
+                    <span>↪</span>
+                    Logout
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+
+        <main class="dashboard-main">
+
+            <header class="dashboard-header">
+
+                <div>
+
+                    <p class="small-title">
+                        A1 • SEMESTER 1
+                    </p>
+
+                    <h1>Subjects</h1>
+
+                    <p class="header-subtitle">
+                        Your subjects and academic information for this semester.
+                    </p>
+
+                </div>
+
+                <button
+                    class="theme-toggle"
+                    id="theme-toggle"
+                    type="button">
+
+                    <span id="theme-icon">☾</span>
+                    <span id="theme-text">Dark</span>
+
+                </button>
+
+            </header>
+
+
+            <!-- SUBJECT GRID -->
+
+            <section class="subjects-page-grid">
+
+
+                <!-- 01 MATHEMATICS -->
+
+                <article class="full-subject-card">
+
+                    <div class="subject-card-top">
+
+                        <div class="subject-number">
+                            01
+                        </div>
+
+                        <div>
+
+                            <p class="subject-type">
+                                THEORY
+                            </p>
+
+                            <h2>
+                                Engineering Mathematics-I
+                            </h2>
+
+                            <p class="teacher">
+                                Mrs. Tejashree Chaudhari
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="subject-card-bottom">
+
+                        <span>
+                            3 Credits
+                        </span>
+
+                        <button
+                            class="subject-action"
+                            onclick="openSyllabus('mathematics')">
+
+                            View syllabus →
+
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- 02 CHEMISTRY -->
+
+                <article class="full-subject-card">
+
+                    <div class="subject-card-top">
+
+                        <div class="subject-number">
+                            02
+                        </div>
+
+                        <div>
+
+                            <p class="subject-type">
+                                THEORY
+                            </p>
+
+                            <h2>
+                                Engineering Chemistry
+                            </h2>
+
+                            <p class="teacher">
+                                Mrs. Amarja Jadhav
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="subject-card-bottom">
+
+                        <span>
+                            3 Credits
+                        </span>
+
+                        <button
+                            class="subject-action"
+                            onclick="openSyllabus('chemistry')">
+
+                            View syllabus →
+
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- 03 CHEMISTRY LAB -->
+
+                <article class="full-subject-card">
+
+                    <div class="subject-card-top">
+
+                        <div class="subject-number">
+                            03
+                        </div>
+
+                        <div>
+
+                            <p class="subject-type">
+                                PRACTICAL
+                            </p>
+
+                            <h2>
+                                Engineering Chemistry Lab
+                            </h2>
+
+                            <p class="teacher">
+                                Mrs. Amarja Jadhav
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="subject-card-bottom">
+
+                        <span>
+                            1 Credit
+                        </span>
+
+                        <button
+                            class="subject-action"
+                            onclick="openSyllabus('chemistry-lab')">
+
+                            View syllabus →
+
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- 04 MECHANICS -->
+
+                <article class="full-subject-card">
+
+                    <div class="subject-card-top">
+
+                        <div class="subject-number">
+                            04
+                        </div>
+
+                        <div>
+
+                            <p class="subject-type">
+                                THEORY
+                            </p>
+
+                            <h2>
+                                Engineering Mechanics
+                            </h2>
+
+                            <p class="teacher">
+                                Mrs. Prajakta Sawant
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="subject-card-bottom">
+
+                        <span>
+                            3 Credits
+                        </span>
+
+                        <button
+                            class="subject-action"
+                            onclick="openSyllabus('mechanics')">
+
+                            View syllabus →
+
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- 05 MECHANICS LAB -->
+
+                <article class="full-subject-card">
+
+                    <div class="subject-card-top">
+
+                        <div class="subject-number">
+                            05
+                        </div>
+
+                        <div>
+
+                            <p class="subject-type">
+                                PRACTICAL
+                            </p>
+
+                            <h2>
+                                Engineering Mechanics Lab
+                            </h2>
+
+                            <p class="teacher">
+                                Mrs. Prajakta Sawant
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="subject-card-bottom">
+
+                        <span>
+                            1 Credit
+                        </span>
+
+                        <button
+                            class="subject-action"
+                            onclick="openSyllabus('mechanics-lab')">
+
+                            View syllabus →
+
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- 06 PPS -->
+
+                <article class="full-subject-card">
+
+                    <div class="subject-card-top">
+
+                        <div class="subject-number">
+                            06
+                        </div>
+
+                        <div>
+
+                            <p class="subject-type">
+                                THEORY
+                            </p>
+
+                            <h2>
+                                Programming for Problem Solving
+                            </h2>
+
+                            <p class="teacher">
+                                Mrs. Harshala Kamble
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="subject-card-bottom">
+
+                        <span>
+                            2 Credits
+                        </span>
+
+                        <button
+                            class="subject-action"
+                            onclick="openSyllabus('pps')">
+
+                            View syllabus →
+
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- 07 PPS LAB -->
+
+                <article class="full-subject-card">
+
+                    <div class="subject-card-top">
+
+                        <div class="subject-number">
+                            07
+                        </div>
+
+                        <div>
+
+                            <p class="subject-type">
+                                PRACTICAL
+                            </p>
+
+                            <h2>
+                                Programming for Problem Solving Lab
+                            </h2>
+
+                            <p class="teacher">
+                                Mrs. Harshala Kamble
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="subject-card-bottom">
+
+                        <span>
+                            1 Credit
+                        </span>
+
+                        <button
+                            class="subject-action"
+                            onclick="openSyllabus('pps-lab')">
+
+                            View syllabus →
+
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- 08 COMMUNICATION -->
+
+                <article class="full-subject-card">
+
+                    <div class="subject-card-top">
+
+                        <div class="subject-number">
+                            08
+                        </div>
+
+                        <div>
+
+                            <p class="subject-type">
+                                THEORY
+                            </p>
+
+                            <h2>
+                                Communication Skills
+                            </h2>
+
+                            <p class="teacher">
+                                Mrs. Deepali Y. Patil
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="subject-card-bottom">
+
+                        <span>
+                            2 Credits
+                        </span>
+
+                        <button
+                            class="subject-action"
+                            onclick="openSyllabus('communication')">
+
+                            View syllabus →
+
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- 09 COMMUNICATION LAB -->
+
+                <article class="full-subject-card">
+
+                    <div class="subject-card-top">
+
+                        <div class="subject-number">
+                            09
+                        </div>
+
+                        <div>
+
+                            <p class="subject-type">
+                                PRACTICAL
+                            </p>
+
+                            <h2>
+                                Communication Skills Lab
+                            </h2>
+
+                            <p class="teacher">
+                                Mrs. Deepali Y. Patil
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="subject-card-bottom">
+
+                        <span>
+                            1 Credit
+                        </span>
+
+                        <button
+                            class="subject-action"
+                            onclick="openSyllabus('communication-lab')">
+
+                            View syllabus →
+
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- 10 WORKSHOP -->
+
+                <article class="full-subject-card">
+
+                    <div class="subject-card-top">
+
+                        <div class="subject-number">
+                            10
+                        </div>
+
+                        <div>
+
+                            <p class="subject-type">
+                                PRACTICAL
+                            </p>
+
+                            <h2>
+                                Workshop Practices
+                            </h2>
+
+                            <p class="teacher">
+                                Mr. P. J. Bhoite
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="subject-card-bottom">
+
+                        <span>
+                            2 Credits
+                        </span>
+
+                        <button
+                            class="subject-action"
+                            onclick="openSyllabus('workshop')">
+
+                            View syllabus →
+
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>

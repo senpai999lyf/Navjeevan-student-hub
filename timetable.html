@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Timetable | Navjeevan Student Hub</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-logo">
+                N
+            </div>
+
+            <div>
+                <h2>Navjeevan</h2>
+                <p>Student Hub</p>
+            </div>
+
+        </div>
+
+
+        <nav class="navigation">
+
+            <button class="nav-item"
+                type="button"
+                onclick="location.href='dashboard.html'">
+
+                <span>⌂</span>
+                Dashboard
+
+            </button>
+
+
+            <button class="nav-item"
+                type="button"
+                onclick="location.href='subjects.html'">
+
+                <span>▣</span>
+                Subjects
+
+            </button>
+
+
+            <button class="nav-item active"
+                type="button"
+                onclick="location.href='timetable.html'">
+
+                <span>◷</span>
+                Timetable
+
+            </button>
+
+
+            <button class="nav-item"
+                type="button"
+                onclick="location.href='assignments.html'">
+
+                <span>✓</span>
+                Assignments
+
+            </button>
+
+
+            <button class="nav-item"
+                type="button"
+                onclick="location.href='notes.html'">
+
+                <span>▤</span>
+                Notes
+
+            </button>
+
+
+            <button class="nav-item"
+                type="button"
+                onclick="location.href='progress.html'">
+
+                <span>◉</span>
+                Progress
+
+            </button>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <button class="nav-item"
+                type="button"
+                onclick="location.href='settings.html'">
+
+                <span>⚙</span>
+                Settings
+
+            </button>
+
+
+            <button class="nav-item logout"
+                type="button"
+                onclick="location.href='index.html'">
+
+                <span>↪</span>
+                Logout
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- HEADER -->
+
+        <header class="page-header">
+
+            <div>
+
+                <p class="small-title">
+                    A1 • SEMESTER 1
+                </p>
+
+                <h1>
+                    Timetable
+                </h1>
+
+                <p class="header-subtitle">
+                    Your weekly class schedule for B.Tech 2026–27.
+                </p>
+
+            </div>
+
+
+            <button
+                class="theme-toggle"
+                id="theme-toggle"
+                type="button">
+
+                <span id="theme-icon">☾</span>
+
+                <span id="theme-text">
+                    Dark
+                </span>
+
+            </button>
+
+        </header>
+
+
+
+        <!-- =================================================
+             TIMETABLE
+        ================================================== -->
+
+        <div class="timetable-wrapper">
+
+            <table class="timetable">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Day
+                        </th>
+
+                        <th>
+                            10:30–11:30
+                        </th>
+
+                        <th>
+                            11:30–12:30
+                        </th>
+
+                        <th>
+                            1:00–2:00
+                        </th>
+
+                        <th>
+                            2:00–3:00
+                        </th>
+
+                        <th>
+                            3:00–4:00
+                        </th>
+
+                        <th>
+                            4:00–5:00
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+
+                    <!-- MONDAY -->
+
+                    <tr>
+
+                        <th>
+                            Monday
+                        </th>
+
+                        <td>
+                            Engineering Chemistry
+                        </td>
+
+                        <td>
+                            Engineering Mathematics-I
+                        </td>
+
+                        <td>
+                            Communication Skills
+                        </td>
+
+                        <td>
+                            PPS Lab<br>
+                            <small>E3</small>
+                        </td>
+
+                        <td>
+                            Communication Skills Lab<br>
+                            <small>E1 & E2</small>
+                        </td>
+
+                        <td>
+                            Yoga
+                        </td>
+
+                    </tr>
+
+
+
+                    <!-- TUESDAY -->
+
+                    <tr>
+
+                        <th>
+                            Tuesday
+                        </th>
+
+                        <td>
+                            Communication Skills
+                        </td>
+
+                        <td>
+                            Engineering Mathematics-I
+                        </td>
+
+                        <td>
+                            Engineering Mechanics
+                        </td>
+
+                        <td>
+                            Chemistry Lab<br>
+                            <small>E1</small>
+                        </td>
+
+                        <td>
+                            Library
+                        </td>
+
+                        <td>
+                            Engineering Mechanics<br>
+                            <small>E2</small>
+                        </td>
+
+                    </tr>
+
+
+
+                    <!-- WEDNESDAY -->
+
+                    <tr>
+
+                        <th>
+                            Wednesday
+                        </th>
+
+                        <td>
+                            PPS Lab<br>
+                            <small>E1 & E2</small>
+                        </td>
+
+                        <td>
+                            Engineering Mathematics-I
+                        </td>
+
+                        <td>
+                            Chemistry Lab<br>
+                            <small>E2</small>
+                        </td>
+
+                        <td>
+                            Engineering Mechanics
+                        </td>
+
+                        <td>
+                            Communication Skills Lab<br>
+                            <small>E3</small>
+                        </td>
+
+                        <td>
+                            Engineering Mechanics<br>
+                            <small>E3</small>
+                        </td>
+
+                    </tr>
+
+
+
+                    <!-- THURSDAY -->
+
+                    <tr>
+
+                        <th>
+                            Thursday
+                        </th>
+
+                        <td>
+                            Programming for Problem Solving
+                        </td>
+
+                        <td>
+                            Engineering Chemistry
+                        </td>
+
+                        <td>
+                            Workshop Practices
+                        </td>
+
+                        <td>
+                            Chemistry Lab<br>
+                            <small>E3</small>
+                        </td>
+
+                        <td>
+                            Engineering Mechanics<br>
+                            <small>E1</small>
+                        </td>
+
+                        <td>
+                            —
+                        </td>
+
+                    </tr>
+
+
+
+                    <!-- FRIDAY -->
+
+                    <tr>
+
+                        <th>
+                            Friday
+                        </th>
+
+                        <td>
+                            Programming for Problem Solving
+                        </td>
+
+                        <td>
+                            Engineering Chemistry
+                        </td>
+
+                        <td>
+                            Engineering Mechanics
+                        </td>
+
+                        <td>
+                            Workshop Practices
+                        </td>
+
+                        <td>
+                            —
+                        </td>
+
+                        <td>
+                            —
+                        </td>
+
+                    </tr>
+
+
+
+                    <!-- SATURDAY -->
+
+                    <tr>
+
+                        <th>
+                            Saturday
+                        </th>
+
+                        <td>
+                            Yoga Practical
+                        </td>
+
+                        <td>
+                            —
+                        </td>
+
+                        <td>
+                            —
+                        </td>
+
+                        <td>
+                            —
+                        </td>
+
+                        <td>
+                            —
+                        </td>
+
+                        <td>
+                            —
+                        </td>
+
+                    </tr>
+
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+
+        <!-- =================================================
+             FACULTY
+        ================================================== -->
+
+        <section class="dashboard-panel" style="margin-top:20px;">
+
+            <div class="panel-heading">
+
+                <div>
+
+                    <p class="small-title">
+                        FACULTY
+                    </p>
+
+                    <h2>
+                        Subject Faculty
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="subject-list">
+
+
+                <div class="subject-row">
+
+                    <span class="subject-dot"></span>
+
+                    <div>
+
+                        <h3>
+                            Communication Skills
+                        </h3>
+
+                        <p>
+                            Mrs. Deepali Y. Patil
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="subject-row">
+
+                    <span class="subject-dot"></span>
+
+                    <div>
+
+                        <h3>
+                            Engineering Chemistry
+                        </h3>
+
+                        <p>
+                            Mrs. Amarja Jadhav
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="subject-row">
+
+                    <span class="subject-dot"></span>
+
+                    <div>
+
+                        <h3>
+                            Engineering Mathematics-I
+                        </h3>
+
+                        <p>
+                            Mrs. Tejashree Chaudhari
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="subject-row">
+
+                    <span class="subject-dot"></span>
+
+                    <div>
+
+                        <h3>
+                            Engineering Mechanics
+                        </h3>
+
+                        <p>
+                            Mrs. Prajakta Sawant
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="subject-row">
+
+                    <span class="subject-dot"></span>
+
+                    <div>
+
+                        <h3>
+                            Programming for Problem Solving
+                        </h3>
+
+                        <p>
+                            Mrs. Harshala Kamble
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="subject-row">
+
+                    <span class="subject-dot"></span>
+
+                    <div>
+
+                        <h3>
+                            Workshop Practices
+                        </h3>
+
+                        <p>
+                            Mr. P. J. Bhoite
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+<script src="js/app.js"></script>
+
+</body>
+
+</html>

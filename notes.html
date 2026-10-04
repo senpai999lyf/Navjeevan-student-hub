@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Notes | Navjeevan Student Hub</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+
+        /* =====================================================
+           NOTES PAGE — STABLE LAYOUT
+        ===================================================== */
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+
+        /* =====================================================
+           APP SHELL
+        ===================================================== */
+
+        .app-shell {
+            min-height: 100vh;
+        }
+
+
+        /* =====================================================
+           FIXED SIDEBAR
+        ===================================================== */
+
+        .app-shell .sidebar {
+            position: fixed !important;
+
+            top: 0;
+            left: 0;
+            bottom: 0;
+
+            width: 250px;
+
+            height: 100vh;
+            height: 100dvh;
+
+            overflow-y: auto;
+            overflow-x: hidden;
+
+            z-index: 1000;
+
+            box-sizing: border-box;
+        }
+
+
+        /* =====================================================
+           MAIN CONTENT
+        ===================================================== */
+
+        .notes-page {
+            margin-left: 250px;
+
+            width: calc(100% - 250px);
+
+            min-height: 100vh;
+
+            box-sizing: border-box;
+
+            padding: 30px 35px 50px;
+
+            overflow-x: hidden;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .notes-hero {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #102a43,
+                    #174a7e
+                );
+
+            color: white;
+
+            border-radius: 20px;
+
+            padding: 28px 30px;
+
+            margin-bottom: 22px;
+
+            box-shadow:
+                0 12px 30px rgba(16, 42, 67, 0.14);
+
+            box-sizing: border-box;
+        }
+
+        .notes-hero .eyebrow {
+
+            margin: 0 0 7px;
+
+            font-size: 11px;
+
+            letter-spacing: 1.5px;
+
+            font-weight: 700;
+
+            opacity: 0.7;
+        }
+
+        .notes-hero h1 {
+
+            margin: 0 0 7px;
+
+            font-size: 29px;
+
+            line-height: 1.2;
+        }
+
+        .notes-hero p {
+
+            margin: 0;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+
+            opacity: 0.82;
+        }
+
+
+        /* =====================================================
+           TOOLBAR
+        ===================================================== */
+
+        .notes-toolbar {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 15px;
+
+            margin-bottom: 20px;
+
+            padding: 14px 17px;
+
+            background: white;
+
+            border: 1px solid #dbe5ef;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 6px 18px rgba(15, 35, 55, 0.045);
+
+            box-sizing: border-box;
+        }
+
+        .notes-count {
+
+            font-size: 13px;
+
+            color: #52677d;
+        }
+
+        .notes-count strong {
+
+            color: #102a43;
+
+            font-size: 14px;
+        }
+
+
+        /* =====================================================
+           GRID
+        ===================================================== */
+
+        .notes-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 18px;
+
+            width: 100%;
+
+            box-sizing: border-box;
+        }
+
+
+        /* =====================================================
+           CARD
+        ===================================================== */
+
+        .note-card {
+
+            display: flex;
+
+            flex-direction: column;
+
+            min-width: 0;
+
+            box-sizing: border-box;
+
+            background: white;
+
+            border: 1px solid #dbe5ef;
+
+            border-radius: 17px;
+
+            padding: 19px;
+
+            min-height: 205px;
+
+            box-shadow:
+                0 7px 22px rgba(15, 35, 55, 0.05);
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .note-card:hover {
+
+            transform: translateY(-3px);
+
+            border-color: #a9c8e8;
+
+            box-shadow:
+                0 12px 28px rgba(15, 35, 55, 0.09);
+        }
+
+
+        /* =====================================================
+           CARD TOP
+        ===================================================== */
+
+        .note-top {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-bottom: 14px;
+
+            min-width: 0;
+        }
+
+
+        /* =====================================================
+           ICON
+        ===================================================== */
+
+        .note-icon {
+
+            width: 42px;
+
+            height: 42px;
+
+            flex: 0 0 42px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background: #eaf3ff;
+
+            color: #1769aa;
+
+            font-size: 19px;
+
+            font-weight: 800;
+        }
+
+
+        /* =====================================================
+           TAG
+        ===================================================== */
+
+        .note-tag {
+
+            max-width: 60%;
+
+            padding: 5px 9px;
+
+            border-radius: 7px;
+
+            background: #eef5fb;
+
+            color: #32658c;
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.6px;
+
+            text-align: right;
+
+            overflow-wrap: anywhere;
+        }
+
+
+        /* =====================================================
+           TITLE
+        ===================================================== */
+
+        .note-card h2 {
+
+            margin: 0 0 7px;
+
+            color: #172b4d;
+
+            font-size: 17px;
+
+            line-height: 1.35;
+
+            overflow-wrap: anywhere;
+        }
+
+
+        /* =====================================================
+           DESCRIPTION
+        ===================================================== */
+
+        .note-card > p {
+
+            margin: 0;
+
+            color: #6b7c93;
+
+            font-size: 12px;
+
+            line-height: 1.6;
+
+            overflow-wrap: anywhere;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        .note-footer {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-top: auto;
+
+            padding-top: 13px;
+
+            border-top: 1px solid #edf1f5;
+        }
+
+        .note-date {
+
+            color: #8a99a8;
+
+            font-size: 10px;
+        }
+
+        .note-button {
+
+            border: 0;
+
+            background: #102a43;
+
+            color: white;
+
+            border-radius: 8px;
+
+            padding: 7px 11px;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            white-space: nowrap;
+
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .note-button:hover {
+
+            background: #1769aa;
+
+            transform: translateY(-1px);
+        }
+
+
+        /* =====================================================
+           SUBJECT COLORS
+        ===================================================== */
+
+        .note-card.math .note-icon {
+
+            background: #edf1ff;
+
+            color: #4b5fc5;
+        }
+
+        .note-card.chemistry .note-icon {
+
+            background: #eaf8f1;
+
+            color: #21865a;
+        }
+
+        .note-card.mechanics .note-icon {
+
+            background: #fff4e8;
+
+            color: #c66b1e;
+        }
+
+        .note-card.pps .note-icon {
+
+            background: #eaf6ff;
+
+            color: #1670a8;
+        }
+
+        .note-card.communication .note-icon {
+
+            background: #f5edff;
+
+            color: #7950b5;
+        }
+
+        .note-card.workshop .note-icon {
+
+            background: #fff0f0;
+
+            color: #b74b4b;
+        }
+
+
+        /* =====================================================
+           INFO
+        ===================================================== */
+
+        .notes-info {
+
+            margin-top: 18px;
+
+            padding: 17px;
+
+            text-align: center;
+
+            background: #f7fafc;
+
+            border: 1px dashed #cbd8e4;
+
+            border-radius: 15px;
+
+            box-sizing: border-box;
+        }
+
+        .notes-info h3 {
+
+            margin: 0 0 5px;
+
+            color: #102a43;
+
+            font-size: 14px;
+        }
+
+        .notes-info p {
+
+            margin: 0;
+
+            color: #718096;
+
+            font-size: 11px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =====================================================
+           TABLET
+        ===================================================== */
+
+        @media (max-width: 1000px) {
+
+            .app-shell .sidebar {
+
+                width: 220px;
+            }
+
+            .notes-page {
+
+                margin-left: 220px;
+
+                width: calc(100% - 220px);
+
+                padding: 25px;
+            }
+
+        }
+
+
+        /* =====================================================
+           SMALL TABLET
+        ===================================================== */
+
+        @media (max-width: 800px) {
+
+            .notes-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+            .notes-page {
+
+                padding: 22px;
+            }
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 650px) {
+
+            .app-shell .sidebar {
+
+                position: relative !important;
+
+                width: 100%;
+
+                height: auto;
+
+                min-height: auto;
+
+                bottom: auto;
+
+                overflow: visible;
+            }
+
+            .notes-page {
+
+                margin-left: 0;
+
+                width: 100%;
+
+                min-height: auto;
+
+                padding: 18px;
+            }
+
+            .notes-hero {
+
+                padding: 22px;
+
+                border-radius: 17px;
+            }
+
+            .notes-hero h1 {
+
+                font-size: 25px;
+            }
+
+            .notes-toolbar {
+
+                align-items: flex-start;
+
+                flex-direction: column;
+            }
+
+            .note-card {
+
+                padding: 18px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="app-shell">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-logo">
+                N
+            </div>
+
+            <div>
+                <h2>Navjeevan</h2>
+                <span>Student Hub</span>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <button class="nav-item">
+                <span>⌂</span>
+                Dashboard
+            </button>
+
+            <button class="nav-item">
+                <span>▦</span>
+                Subjects
+            </button>
+
+            <button class="nav-item">
+                <span>▤</span>
+                Timetable
+            </button>
+
+            <button class="nav-item">
+                <span>✓</span>
+                Assignments
+            </button>
+
+            <button class="nav-item active">
+                <span>▱</span>
+                Notes
+            </button>
+
+            <button class="nav-item">
+                <span>◔</span>
+                Progress
+            </button>
+
+            <button class="nav-item">
+                <span>⚙</span>
+                Settings
+            </button>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <button class="nav-item logout">
+                <span>↪</span>
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="main-content notes-page">
+
+
+        <!-- HERO -->
+
+        <section class="notes-hero">
+
+            <p class="eyebrow">
+                A1 • SEMESTER 1
+            </p>
+
+            <h1>
+                Study Notes
+            </h1>
+
+            <p>
+                Keep your important academic material organised in one place.
+            </p>
+
+        </section>
+
+
+        <!-- TOOLBAR -->
+
+        <div class="notes-toolbar">
+
+            <div class="notes-count">
+
+                <strong>6</strong>
+                subject folders available
+
+            </div>
+
+            <div class="notes-count">
+
+                Semester 1 • 2026–27
+
+            </div>
+
+        </div>
+
+
+        <!-- NOTES GRID -->
+
+        <div class="notes-grid">
+
+
+            <!-- MATHEMATICS -->
+
+            <article class="note-card math">
+
+                <div class="note-top">
+
+                    <div class="note-icon">
+                        ∑
+                    </div>
+
+                    <span class="note-tag">
+                        Mathematics
+                    </span>
+
+                </div>
+
+                <h2>
+                    Engineering Mathematics-I
+                </h2>
+
+                <p>
+                    Class notes and study material for matrices,
+                    partial differentiation, multiple integrals
+                    and other Semester I topics.
+                </p>
+
+                <div class="note-footer">
+
+                    <span class="note-date">
+                        Course Notes
+                    </span>
+
+                    <button
+                        type="button"
+                        class="note-button"
+                        onclick="openSyllabus('mathematics')">
+                        Open Notes →
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- CHEMISTRY -->
+
+            <article class="note-card chemistry">
+
+                <div class="note-top">
+
+                    <div class="note-icon">
+                        ⚗
+                    </div>
+
+                    <span class="note-tag">
+                        Chemistry
+                    </span>
+
+                </div>
+
+                <h2>
+                    Engineering Chemistry
+                </h2>
+
+                <p>
+                    Notes for water treatment, fuels and lubricants,
+                    electrochemistry, instrumental methods and
+                    engineering materials.
+                </p>
+
+                <div class="note-footer">
+
+                    <span class="note-date">
+                        Course Notes
+                    </span>
+
+                    <button
+                        type="button"
+                        class="note-button"
+                        onclick="openSyllabus('chemistry')">
+                        Open Notes →
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- MECHANICS -->
+
+            <article class="note-card mechanics">
+
+                <div class="note-top">
+
+                    <div class="note-icon">
+                        ⚙
+                    </div>
+
+                    <span class="note-tag">
+                        Mechanics
+                    </span>
+
+                </div>
+
+                <h2>
+                    Engineering Mechanics
+                </h2>
+
+                <p>
+                    Study material covering force systems,
+                    equilibrium, beams and trusses, kinematics,
+                    kinetics, work and energy.
+                </p>
+
+                <div class="note-footer">
+
+                    <span class="note-date">
+                        Course Notes
+                    </span>
+
+                    <button
+                        type="button"
+                        class="note-button"
+                        onclick="openSyllabus('mechanics')">
+                        Open Notes →
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- PPS -->
+
+            <article class="note-card pps">
+
+                <div class="note-top">
+
+                    <div class="note-icon">
+                        &lt;/&gt;
+                    </div>
+
+                    <span class="note-tag">
+                        Programming
+                    </span>
+
+                </div>
+
+                <h2>
+                    Programming for Problem Solving
+                </h2>
+
+                <p>
+                    Notes for C programming fundamentals, operators,
+                    control flow, functions, arrays, pointers,
+                    structures and file management.
+                </p>
+
+                <div class="note-footer">
+
+                    <span class="note-date">
+                        Course Notes
+                    </span>
+
+                    <button
+                        type="button"
+                        class="note-button"
+                        onclick="openSyllabus('pps')">
+                        Open Notes →
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- COMMUNICATION -->
+
+            <article class="note-card communication">
+
+                <div class="note-top">
+
+                    <div class="note-icon">
+                        A
+                    </div>
+
+                    <span class="note-tag">
+                        Communication
+                    </span>
+
+                </div>
+
+                <h2>
+                    Communication Skills
+                </h2>
+
+                <p>
+                    Notes covering communication processes,
+                    speaking, phonetics, grammar, reading,
+                    listening and technical writing.
+                </p>
+
+                <div class="note-footer">
+
+                    <span class="note-date">
+                        Course Notes
+                    </span>
+
+                    <button
+                        type="button"
+                        class="note-button"
+                        onclick="openSyllabus('communication')">
+                        Open Notes →
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- WORKSHOP -->
+
+            <article class="note-card workshop">
+
+                <div class="note-top">
+
+                    <div class="note-icon">
+                        🔧
+                    </div>
+
+                    <span class="note-tag">
+                        Workshop
+                    </span>
+
+                </div>
+
+                <h2>
+                    Workshop Practices
+                </h2>
+
+                <p>
+                    Keep workshop instructions, practical material
+                    and important class resources organised here.
+                </p>
+
+                <div class="note-footer">
+
+                    <span class="note-date">
+                        Course Notes
+                    </span>
+
+                    <button
+                        type="button"
+                        class="note-button"
+                        onclick="openSyllabus('workshop')">
+                        Open Notes →
+                    </button>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+
+        <!-- INFO -->
+
+        <div class="notes-info">
+
+            <h3>
+                More resources coming here
+            </h3>
+
+            <p>
+                In the full portal, teachers will be able to upload
+                notes, PDFs, important topics and other study resources
+                directly to the relevant subject.
+            </p>
+
+        </div>
+
+
+    </main>
+
+</div>
+
+
+<script src="js/app.js"></script>
+
+</body>
+</html>
+
+
+

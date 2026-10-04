@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Settings | Navjeevan Student Hub</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+
+        .settings-page {
+            margin-top: 30px;
+            max-width: 1000px;
+        }
+
+        .settings-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .settings-card h2 {
+            margin: 0 0 6px;
+        }
+
+        .settings-card > p {
+            margin: 0 0 22px;
+            opacity: 0.6;
+            font-size: 13px;
+        }
+
+        .profile-box {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .profile-avatar {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: var(--soft-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+            font-weight: 700;
+        }
+
+        .profile-box h2 {
+            margin: 0 0 5px;
+        }
+
+        .profile-box p {
+            margin: 0;
+            opacity: 0.6;
+            font-size: 13px;
+        }
+
+        .setting-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 17px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .setting-row:last-child {
+            border-bottom: none;
+        }
+
+        .setting-row h3 {
+            margin: 0 0 5px;
+            font-size: 14px;
+        }
+
+        .setting-row p {
+            margin: 0;
+            font-size: 12px;
+            opacity: 0.55;
+        }
+
+        .setting-value {
+            font-size: 13px;
+            opacity: 0.7;
+            text-align: right;
+        }
+
+        .setting-button {
+            border: 1px solid var(--border-color);
+            background: transparent;
+            color: inherit;
+            padding: 9px 14px;
+            border-radius: 9px;
+            cursor: pointer;
+        }
+
+        .setting-button:hover {
+            background: var(--soft-bg);
+        }
+
+        .toggle {
+            width: 45px;
+            height: 25px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            background: var(--soft-bg);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .toggle span {
+            position: absolute;
+            width: 19px;
+            height: 19px;
+            border-radius: 50%;
+            left: 2px;
+            top: 2px;
+            background: currentColor;
+            transition: 0.2s;
+        }
+
+        .toggle.active span {
+            left: 22px;
+        }
+
+        .danger-button {
+            border-color: rgba(180, 60, 60, 0.4);
+        }
+
+        @media (max-width: 700px) {
+
+            .setting-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .setting-value {
+                text-align: left;
+            }
+
+            .profile-box {
+                align-items: flex-start;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="dashboard">
+
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-logo">
+                N
+            </div>
+
+            <div>
+                <h2>Navjeevan</h2>
+                <p>Student Hub</p>
+            </div>
+
+        </div>
+
+
+        <nav class="navigation">
+
+            <button class="nav-item">
+                <span>⌂</span>
+                Dashboard
+            </button>
+
+            <button class="nav-item">
+                <span>▣</span>
+                Subjects
+            </button>
+
+            <button class="nav-item">
+                <span>◷</span>
+                Timetable
+            </button>
+
+            <button class="nav-item">
+                <span>✓</span>
+                Assignments
+            </button>
+
+            <button class="nav-item">
+                <span>▤</span>
+                Notes
+            </button>
+
+            <button class="nav-item">
+                <span>◉</span>
+                Progress
+            </button>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <button class="nav-item active">
+                <span>⚙</span>
+                Settings
+            </button>
+
+            <button class="nav-item logout">
+                <span>↪</span>
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- MAIN -->
+
+    <main class="dashboard-main">
+
+
+        <!-- HEADER -->
+
+        <header class="dashboard-header">
+
+            <div>
+
+                <p class="small-title">
+                    ACCOUNT
+                </p>
+
+                <h1>
+                    Settings
+                </h1>
+
+                <p class="header-subtitle">
+                    Manage your Student Hub preferences and account.
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="theme-toggle"
+                id="theme-toggle"
+            >
+
+                <span id="theme-icon">☾</span>
+
+                <span id="theme-text">Dark</span>
+
+            </button>
+
+        </header>
+
+
+
+        <!-- SETTINGS -->
+
+        <section class="settings-page">
+
+
+            <!-- PROFILE -->
+
+            <div class="settings-card">
+
+                <div class="profile-box">
+
+                    <div class="profile-avatar">
+                        S
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Samarth
+                        </h2>
+
+                        <p>
+                            Student • B.Tech • First Year • A1
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ACADEMIC -->
+
+            <div class="settings-card">
+
+                <h2>
+                    Academic Information
+                </h2>
+
+                <p>
+                    Your current academic details.
+                </p>
+
+
+                <div class="setting-row">
+
+                    <div>
+                        <h3>College</h3>
+                        <p>Your institution</p>
+                    </div>
+
+                    <div class="setting-value">
+                        Navjeevan College of Engineering
+                    </div>
+
+                </div>
+
+
+                <div class="setting-row">
+
+                    <div>
+                        <h3>Programme</h3>
+                        <p>Degree programme</p>
+                    </div>
+
+                    <div class="setting-value">
+                        B.Tech
+                    </div>
+
+                </div>
+
+
+                <div class="setting-row">
+
+                    <div>
+                        <h3>Year</h3>
+                        <p>Current year</p>
+                    </div>
+
+                    <div class="setting-value">
+                        First Year
+                    </div>
+
+                </div>
+
+
+                <div class="setting-row">
+
+                    <div>
+                        <h3>Semester</h3>
+                        <p>Current semester</p>
+                    </div>
+
+                    <div class="setting-value">
+                        Semester 1
+                    </div>
+
+                </div>
+
+
+                <div class="setting-row">
+
+                    <div>
+                        <h3>Group</h3>
+                        <p>Assigned student group</p>
+                    </div>
+
+                    <div class="setting-value">
+                        A1
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- APPEARANCE -->
+
+            <div class="settings-card">
+
+                <h2>
+                    Appearance
+                </h2>
+
+                <p>
+                    Change how the portal looks.
+                </p>
+
+
+                <div class="setting-row">
+
+                    <div>
+                        <h3>Theme</h3>
+                        <p>Switch between light and dark mode.</p>
+                    </div>
+
+                    <button
+                        class="setting-button"
+                        onclick="document.getElementById('theme-toggle').click()"
+                    >
+                        Toggle Theme
+                    </button>
+
+                </div>
+
+
+                <div class="setting-row">
+
+                    <div>
+                        <h3>Compact View</h3>
+                        <p>Use a more compact interface.</p>
+                    </div>
+
+
+                    <button
+                        class="toggle"
+                        onclick="this.classList.toggle('active')"
+                    >
+
+                        <span></span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- NOTIFICATIONS -->
+
+            <div class="settings-card">
+
+                <h2>
+                    Notifications
+                </h2>
+
+                <p>
+                    Control your academic notifications.
+                </p>
+
+
+                <div class="setting-row">
+
+                    <div>
+                        <h3>Assignments</h3>
+                        <p>Updates when new assignments are added.</p>
+                    </div>
+
+
+                    <button
+                        class="toggle active"
+                        onclick="this.classList.toggle('active')"
+                    >
+
+                        <span></span>
+
+                    </button>
+
+                </div>
+
+
+                <div class="setting-row">
+
+                    <div>
+                        <h3>Announcements</h3>
+                        <p>Important college announcements.</p>
+                    </div>
+
+
+                    <button
+                        class="toggle active"
+                        onclick="this.classList.toggle('active')"
+                    >
+
+                        <span></span>
+
+                    </button>
+
+                </div>
+
+
+                <div class="setting-row">
+
+                    <div>
+                        <h3>Study Reminders</h3>
+                        <p>Reminders for your personal study goals.</p>
+                    </div>
+
+
+                    <button
+                        class="toggle active"
+                        onclick="this.classList.toggle('active')"
+                    >
+
+                        <span></span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ACCOUNT -->
+
+            <div class="settings-card">
+
+                <h2>
+                    Account
+                </h2>
+
+                <p>
+                    Manage your Student Hub account.
+                </p>
+
+
+                <div class="setting-row">
+
+                    <div>
+                        <h3>Student ID</h3>
+                        <p>Your registered student ID.</p>
+                    </div>
+
+                    <div class="setting-value">
+                        Not connected
+                    </div>
+
+                </div>
+
+
+                <div class="setting-row">
+
+                    <div>
+                        <h3>Password</h3>
+                        <p>Manage your account password.</p>
+                    </div>
+
+                    <button
+                        class="setting-button"
+                        onclick="alert('Password management will be available after backend authentication is connected.')"
+                    >
+                        Change Password
+                    </button>
+
+                </div>
+
+
+                <div class="setting-row">
+
+                    <div>
+                        <h3>Logout</h3>
+                        <p>Exit your Student Hub session.</p>
+                    </div>
+
+                    <button
+                        class="setting-button danger-button"
+                        onclick="window.location.href='index.html'"
+                    >
+                        Logout
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- BACK -->
+
+            <section class="back-section">
+
+                <button
+                    class="back-button"
+                    onclick="window.location.href='dashboard.html'"
+                >
+                    ← Back to Dashboard
+                </button>
+
+            </section>
+
+
+        </section>
+
+    </main>
+
+</div>
+
+
+
+<script src="js/app.js"></script>
+
+</body>
+
+</html>

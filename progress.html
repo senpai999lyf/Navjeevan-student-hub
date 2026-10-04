@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Progress | Navjeevan Student Hub</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* =====================================================
+           PERSONAL STUDY PROGRESS
+        ===================================================== */
+
+        .progress-overview {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 22px;
+        }
+
+        .progress-overview-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 22px;
+            box-shadow: var(--shadow);
+        }
+
+        .progress-overview-card h2 {
+            margin-top: 7px;
+            font-size: 30px;
+        }
+
+        .progress-overview-card p {
+            margin-top: 5px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .overall-progress {
+            margin-top: 16px;
+        }
+
+        .progress-track {
+            width: 100%;
+            height: 9px;
+            background: var(--soft);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: var(--blue);
+            border-radius: 20px;
+            transition: width 0.3s ease;
+        }
+
+        .progress-percent {
+            margin-top: 7px;
+            color: var(--blue);
+            font-size: 12px;
+            font-weight: 700;
+            text-align: right;
+        }
+
+
+        /* SUBJECT PROGRESS */
+
+        .progress-subjects {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .progress-subject {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .progress-subject-header {
+            width: 100%;
+            padding: 20px 22px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+
+            cursor: pointer;
+        }
+
+        .progress-subject-header:hover {
+            background: var(--soft);
+        }
+
+        .progress-subject-info {
+            min-width: 0;
+        }
+
+        .progress-subject-info h2 {
+            font-size: 17px;
+            line-height: 1.4;
+        }
+
+        .progress-subject-info p {
+            margin-top: 5px;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .progress-subject-right {
+            min-width: 150px;
+            text-align: right;
+        }
+
+        .subject-percent {
+            color: var(--blue);
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .subject-count {
+            margin-top: 4px;
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        .subject-progress-track {
+            width: 100%;
+            height: 6px;
+            margin-top: 9px;
+            background: var(--soft);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .subject-progress-fill {
+            width: 0%;
+            height: 100%;
+            background: var(--blue);
+            border-radius: 20px;
+            transition: width 0.3s ease;
+        }
+
+
+        /* TOPICS */
+
+        .topic-list {
+            display: none;
+
+            padding: 0 22px 20px;
+
+            border-top: 1px solid var(--border);
+        }
+
+        .progress-subject.open .topic-list {
+            display: block;
+        }
+
+        .topic-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            padding: 13px 0;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .topic-item:last-child {
+            border-bottom: none;
+        }
+
+        .topic-checkbox {
+            width: 18px;
+            height: 18px;
+
+            min-width: 18px;
+
+            cursor: pointer;
+
+            accent-color: var(--blue);
+        }
+
+        .topic-label {
+            color: var(--text);
+            font-size: 13px;
+            line-height: 1.5;
+            cursor: pointer;
+        }
+
+        .topic-item.completed .topic-label {
+            color: var(--muted);
+            text-decoration: line-through;
+        }
+
+        .topic-number {
+            color: var(--blue);
+            font-size: 11px;
+            font-weight: 700;
+            min-width: 25px;
+        }
+
+
+        /* ARROW */
+
+        .progress-arrow {
+            color: var(--muted);
+            font-size: 18px;
+            transition: transform 0.2s ease;
+        }
+
+        .progress-subject.open .progress-arrow {
+            transform: rotate(180deg);
+        }
+
+
+        /* RESET */
+
+        .progress-actions {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 18px;
+        }
+
+        .reset-progress {
+            padding: 9px 14px;
+
+            border: 1px solid var(--border);
+            border-radius: 8px;
+
+            background: var(--card);
+            color: var(--danger);
+
+            font-size: 12px;
+            font-weight: 600;
+
+            cursor: pointer;
+        }
+
+        .reset-progress:hover {
+            background: var(--soft);
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 850px) {
+
+            .progress-overview {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .progress-overview-card:first-child {
+                grid-column: 1 / -1;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .progress-overview {
+                grid-template-columns: 1fr;
+            }
+
+            .progress-overview-card:first-child {
+                grid-column: auto;
+            }
+
+            .progress-subject-header {
+                align-items: flex-start;
+            }
+
+            .progress-subject-right {
+                min-width: 90px;
+            }
+
+            .topic-list {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+        }
+
+
+        @media (max-width: 450px) {
+
+            .progress-subject-header {
+                gap: 10px;
+            }
+
+            .progress-subject-info h2 {
+                font-size: 15px;
+            }
+
+            .progress-subject-right {
+                min-width: 70px;
+            }
+
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="dashboard">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-logo">
+                N
+            </div>
+
+            <div>
+                <h2>Navjeevan</h2>
+                <p>Student Hub</p>
+            </div>
+
+        </div>
+
+
+        <nav class="navigation">
+
+            <button class="nav-item"
+                type="button"
+                onclick="location.href='dashboard.html'">
+
+                <span>⌂</span>
+                Dashboard
+
+            </button>
+
+
+            <button class="nav-item"
+                type="button"
+                onclick="location.href='subjects.html'">
+
+                <span>▣</span>
+                Subjects
+
+            </button>
+
+
+            <button class="nav-item"
+                type="button"
+                onclick="location.href='timetable.html'">
+
+                <span>◷</span>
+                Timetable
+
+            </button>
+
+
+            <button class="nav-item"
+                type="button"
+                onclick="location.href='assignments.html'">
+
+                <span>✓</span>
+                Assignments
+
+            </button>
+
+
+            <button class="nav-item"
+                type="button"
+                onclick="location.href='notes.html'">
+
+                <span>▤</span>
+                Notes
+
+            </button>
+
+
+            <button class="nav-item active"
+                type="button"
+                onclick="location.href='progress.html'">
+
+                <span>◉</span>
+                Progress
+
+            </button>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <button class="nav-item"
+                type="button"
+                onclick="location.href='settings.html'">
+
+                <span>⚙</span>
+                Settings
+
+            </button>
+
+
+            <button class="nav-item logout"
+                type="button"
+                onclick="location.href='index.html'">
+
+                <span>↪</span>
+                Logout
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- HEADER -->
+
+        <header class="page-header">
+
+            <div>
+
+                <p class="small-title">
+                    PERSONAL STUDY TRACKER
+                </p>
+
+                <h1>
+                    My Progress
+                </h1>
+
+                <p class="header-subtitle">
+                    Track the topics you have completed across your Semester 1 subjects.
+                </p>
+
+            </div>
+
+
+            <button
+                class="theme-toggle"
+                id="theme-toggle"
+                type="button">
+
+                <span id="theme-icon">☾</span>
+
+                <span id="theme-text">
+                    Dark
+                </span>
+
+            </button>
+
+        </header>
+
+
+
+        <!-- =================================================
+             OVERVIEW
+        ================================================== -->
+
+        <section class="progress-overview">
+
+
+            <div class="progress-overview-card">
+
+                <p class="small-title">
+                    OVERALL PROGRESS
+                </p>
+
+                <h2 id="overall-percent">
+                    0%
+                </h2>
+
+                <p id="overall-text">
+                    0 of 0 topics completed
+                </p>
+
+
+                <div class="overall-progress">
+
+                    <div class="progress-track">
+
+                        <div
+                            class="progress-fill"
+                            id="overall-fill">
+                        </div>
+
+                    </div>
+
+                    <div
+                        class="progress-percent"
+                        id="overall-percent-small">
+
+                        0%
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="progress-overview-card">
+
+                <p class="small-title">
+                    SUBJECTS
+                </p>
+
+                <h2 id="subjects-count">
+                    0 / 10
+                </h2>
+
+                <p>
+                    Subjects with progress
+                </p>
+
+            </div>
+
+
+
+            <div class="progress-overview-card">
+
+                <p class="small-title">
+                    COMPLETED
+                </p>
+
+                <h2 id="completed-count">
+                    0
+                </h2>
+
+                <p>
+                    Topics completed
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             SUBJECTS
+        ================================================== -->
+
+        <section>
+
+            <div style="margin-bottom:15px;">
+
+                <p class="small-title">
+                    SEMESTER 1
+                </p>
+
+                <h2 style="margin-top:6px;">
+                    Your Subjects
+                </h2>
+
+            </div>
+
+
+            <div
+                class="progress-subjects"
+                id="progress-subjects">
+
+
+                <!-- MATHEMATICS -->
+
+                <article
+                    class="progress-subject"
+                    data-subject="mathematics">
+
+                    <div class="progress-subject-header">
+
+                        <div class="progress-subject-info">
+
+                            <h2>
+                                Engineering Mathematics-I
+                            </h2>
+
+                            <p>
+                                5 syllabus units
+                            </p>
+
+                        </div>
+
+
+                        <div class="progress-subject-right">
+
+                            <div
+                                class="subject-percent">
+                                0%
+                            </div>
+
+                            <div
+                                class="subject-count">
+                                0 / 5 topics
+                            </div>
+
+                            <div class="subject-progress-track">
+
+                                <div
+                                    class="subject-progress-fill">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="progress-arrow">
+                            ▼
+                        </div>
+
+                    </div>
+
+
+                    <div class="topic-list">
+
+                        <label class="topic-item">
+
+                            <input
+                                type="checkbox"
+                                class="topic-checkbox">
+
+                            <span class="topic-number">
+                                01
+                            </span>
+
+                            <span class="topic-label">
+                                Linear Algebra
+                            </span>
+
+                        </label>
+
+
+                        <label class="topic-item">
+
+                            <input
+                                type="checkbox"
+                                class="topic-checkbox">
+
+                            <span class="topic-number">
+                                02
+                            </span>
+
+                            <span class="topic-label">
+                                Partial Differentiation
+                            </span>
+
+                        </label>
+
+
+                        <label class="topic-item">
+
+                            <input
+                                type="checkbox"
+                                class="topic-checkbox">
+
+                            <span class="topic-number">
+                                03
+                            </span>
+
+                            <span class="topic-label">
+                                Applications of Partial Differentiation
+                            </span>
+
+                        </label>
+
+
+                        <label class="topic-item">
+
+                            <input
+                                type="checkbox"
+                                class="topic-checkbox">
+
+                            <span class="topic-number">
+                                04
+                            </span>
+
+                            <span class="topic-label">
+                                Reduction Formulae and Tracing of Curves
+                            </span>
+
+                        </label>
+
+
+                        <label class="topic-item">
+
+                            <input
+                                type="checkbox"
+                                class="topic-checkbox">
+
+                            <span class="topic-number">
+                                05
+                            </span>
+
+                            <span class="topic-label">
+                                Multiple Integrals
+                            </span>
+
+                        </label>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- CHEMISTRY -->
+
+                <article
+                    class="progress-subject"
+                    data-subject="chemistry">
+
+                    <div class="progress-subject-header">
+
+                        <div class="progress-subject-info">
+
+                            <h2>
+                                Engineering Chemistry
+                            </h2>
+
+                            <p>
+                                5 syllabus units
+                            </p>
+
+                        </div>
+
+
+                        <div class="progress-subject-right">
+
+                            <div class="subject-percent">
+                                0%
+                            </div>
+
+                            <div class="subject-count">
+                                0 / 5 topics
+                            </div>
+
+                            <div class="subject-progress-track">
+
+                                <div class="subject-progress-fill">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="progress-arrow">
+                            ▼
+                        </div>
+
+                    </div>
+
+
+                    <div class="topic-list">
+
+                        <label class="topic-item">
+
+                            <input type="checkbox" class="topic-checkbox">
+
+                            <span class="topic-number">01</span>
+
+                            <span class="topic-label">
+                                Water Treatment
+                            </span>
+
+                        </label>
+
+
+                        <label class="topic-item">
+
+                            <input type="checkbox" class="topic-checkbox">
+
+                            <span class="topic-number">02</span>
+
+                            <span class="topic-label">
+                                Fuels and Lubricants
+                            </span>
+
+                        </label>
+
+
+                        <label class="topic-item">
+
+                            <input type="checkbox" class="topic-checkbox">
+
+                            <span class="topic-number">03</span>
+
+                            <span class="topic-label">
+                                Electrochemistry
+                            </span>
+
+                        </label>
+
+
+                        <label class="topic-item">
+
+                            <input type="checkbox" class="topic-checkbox">
+
+                            <span class="topic-number">04</span>
+
+                            <span class="topic-label">
+                                Instrumental Methods
+                            </span>
+
+                        </label>
+
+
+                        <label class="topic-item">
+
+                            <input type="checkbox" class="topic-checkbox">
+
+                            <span class="topic-number">05</span>
+
+                            <span class="topic-label">
+                                Engineering Materials
+                            </span>
+
+                        </label>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- MECHANICS -->
+
+                <article
+                    class="progress-subject"
+                    data-subject="mechanics">
+
+                    <div class="progress-subject-header">
+
+                        <div class="progress-subject-info">
+
+                            <h2>
+                                Engineering Mechanics
+                            </h2>
+
+                            <p>
+                                5 syllabus units
+                            </p>
+
+                        </div>
+
+
+                        <div class="progress-subject-right">
+
+                            <div class="subject-percent">
+                                0%
+                            </div>
+
+                            <div class="subject-count">
+                                0 / 5 topics
+                            </div>
+
+                            <div class="subject-progress-track">
+
+                                <div class="subject-progress-fill">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="progress-arrow">
+                            ▼
+                        </div>
+
+                    </div>
+
+
+                    <div class="topic-list">
+
+                        <label class="topic-item">
+
+                            <input type="checkbox" class="topic-checkbox">
+
+                            <span class="topic-number">01</span>
+
+                            <span class="topic-label">
+                                Fundamentals of Engineering Mechanics
+                            </span>
+
+                        </label>
+
+
+                        <label class="topic-item">
+
+                            <input type="checkbox" class="topic-checkbox">
+
+                            <span class="topic-number">02</span>
+
+                            <span class="topic-label">
+                                Equilibrium, Centroid, Moment of Inertia and Friction
+                            </span>
+
+                        </label>
+
+
+                        <label class="topic-item">
+
+                            <input type="checkbox" class="topic-checkbox">
+
+                            <span class="topic-number">03</span>
+
+                            <span class="topic-label">
+                                Beams and Trusses
+                            </span>
+
+                        </label>
+
+
+                        <label class="topic-item">
+
+                            <input type="checkbox" class="topic-checkbox">
+
+                            <span class="topic-number">04</span>
+
+                            <span class="topic-label">
+                                Kinematics of Particles
+                            </span>
+
+                        </label>
+
+
+                        <label class="topic-item">
+
+                            <input type="checkbox" class="topic-checkbox">
+
+                            <span class="topic-number">05</span>
+
+                            <span class="topic-label">
+                                Kinetics, Work, Energy and Momentum
+                            </span>
+
+                        </label>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- PPS -->
+
+                <article
+                    class="progress-subject"
+                    data-subject="pps">
+
+                    <div class="progress-subject-header">
+
+                        <div class="progress-subject-info">
+
+                            <h2>
+                                Programming for Problem Solving
+                            </h2>
+
+                            <p>
+                                5 syllabus units
+                            </p>
+
+                        </div>
+
+
+                        <div class="progress-subject-right">
+
+                            <div class="subject-percent">
+                                0%
+                            </div>
+
+                            <div class="subject-count">
+                                0 / 5 topics
+                            </div>
+
+                            <div class="subject-progress-track">
+
+                                <div class="subject-progress-fill">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="progress-arrow">
+                            ▼
+                        </div>
+
+                    </div>
+
+
+                    <div class="topic-list">
+
+                        <label class="topic-item">
+
+                            <input type="checkbox" class="topic-checkbox">
+
+                            <span class="topic-number">01</span>
+
+                            <span class="topic-label">
+                                Computer Fundamentals and Programming Basics
+                            </span>
+
+                        </label>
+
+
+                        <label class="topic-item">
+
+                            <input type="checkbox" class="topic-checkbox">
+
+                            <span class="topic-number">02</span>
+
+                            <span class="topic-label">
+                                Tokens, Data Types, Operators and Expressions
+                            </span>
+
+                        </label>
+
+
+                        <label class="topic-item">
+
+                            <input type="checkbox" class="topic-checkbox">
+
+                            <span class="topic-number">03</span>
+
+                            <span class="topic-label">
+                                Control Flow, Functions and Scope
+                            </span>
+
+                        </label>
+
+
+                        <label class="topic-item">
+
+                            <input type="checkbox" class="topic-checkbox">
+
+                            <span class="topic-number">04</span>
+
+                            <span class="topic-label">
+                                Arrays and Pointers
+                            </span>
+
+                        </label>
+
+
+                        <label class="topic-item">
+
+                            <input type="checkbox" class="topic-checkbox">
+
+                            <span class="topic-number">05</span>
+
+                            <span class="topic-label">
+                                Structures and File Management
+                            </span>
+
+                        </label>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- COMMUNICATION -->
+
+                <article
+                    class="progress-subject"
+                    data-subject="communication">
+
+                    <div class="progress-subject-header">
+
+                        <div class="progress-subject-info">
+
+                            <h2>
+                                Communication Skills
+                            </h2>
+
+                            <p>
+                                5 syllabus units
+                            </p>
+
+                        </div>
+
+
+                        <div class="progress-subject-right">
+
+                            <div class="subject-percent">
+                                0%
+                            </div>
+
+                            <div class="subject-count">
+                                0 / 5 topics
+                            </div>
+
+                            <div class="subject-progress-track">
+
+                                <div class="subject-progress-fill">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="progress-arrow">
+                            ▼
+                        </div>
+
+                    </div>
+
+
+                    <div class="topic-list">
+
+                        <label class="topic-item">
+
+                            <input type="checkbox" class="topic-checkbox">
+
+                            <span class="topic-number">01</span>
+
+                            <span class="topic-label">
+                                Communication Process and Barriers
+                            </span>
+
+                        </label>
+
+
+                        <label class="topic-item">
+
+                            <input type="checkbox" class="topic-checkbox">
+
+                            <span class="topic-number">02</span>
+
+                            <span class="topic-label">
+                                Speaking, Group Discussion and Public Speaking
+                            </span>
+
+                        </label>
+
+
+                        <label class="topic-item">
+
+                            <input type="checkbox" class="topic-checkbox">
+
+                            <span class="topic-number">03</span>
+
+                            <span class="topic-label">
+                                Phonetics and Speech
+                            </span>
+
+                        </label>
+
+
+                        <label class="topic-item">
+
+                            <input type="checkbox" class="topic-checkbox">
+
+                            <span class="topic-number">04</span>
+
+                            <span class="topic-label">
+                                Grammar and Common Errors
+                            </span>
+
+                        </label>
+
+
+                        <label class="topic-item">
+
+                            <input type="checkbox" class="topic-checkbox">
+
+                            <span class="topic-number">05</span>
+
+                            <span class="topic-label">
+                                Email and Technical Report Writing
+                            </span>
+
+                        </label>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- WORKSHOP -->
+
+                <article
+                    class="progress-subject"
+                    data-subject="workshop">
+
+                    <div class="progress-subject-header">
+
+                        <div class="progress-subject-info">
+
+                            <h2>
+                                Workshop Practices
+                            </h2>
+
+                            <p>
+                                Practical subject
+                            </p>
+
+                        </div>
+
+
+                        <div class="progress-subject-right">
+
+                            <div class="subject-percent">
+                                0%
+                            </div>
+
+                            <div class="subject-count">
+                                0 / 5 topics
+                            </div>
+
+                            <div class="subject-progress-track">
+
+                                <div class="subject-progress-fill">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="progress-arrow">
+                            ▼
+                        </div>
+
+                    </div>
+
+
+                    <div class="topic-list">
+
+                        <label class="topic-item">
+
+                            <input type="checkbox" class="topic-checkbox">
+
+                            <span class="topic-number">01</span>
+
+                            <span class="topic-label">
+                                Workshop Safety and Tools
+                            </span>
+
+                        </label>
+
+
+                        <label class="topic-item">
+
+                            <input type="checkbox" class="topic-checkbox">
+
+                            <span class="topic-number">02</span>
+
+                            <span class="topic-label">
+                                Carpentry Practices
+                            </span>
+
+                        </label>
+
+
+                        <label class="topic-item">
+
+                            <input type="checkbox" class="topic-checkbox">
+
+                            <span class="topic-number">03</span>
+
+                            <span class="topic-label">
+                                Fitting Practices
+                            </span>
+
+                        </label>
+
+
+                        <label class="topic-item">
+
+                            <input type="checkbox" class="topic-checkbox">
+
+                            <span class="topic-number">04</span>
+
+                            <span class="topic-label">
+                                Sheet Metal and Manufacturing Practices
+                            </span>
+
+                        </label>
+
+
+                        <label class="topic-item">
+
+                            <input type="checkbox" class="topic-checkbox">
+
+                            <span class="topic-number">05</span>
+
+                            <span class="topic-label">
+                                Practical Workshop Exercises
+                            </span>
+
+                        </label>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+
+            <!-- RESET -->
+
+            <div class="progress-actions">
+
+                <button
+                    type="button"
+                    class="reset-progress"
+                    id="reset-progress">
+
+                    Reset Progress
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script src="js/app.js"></script>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const subjects =
+        document.querySelectorAll(".progress-subject");
+
+    const storageKey =
+        "navjeevan-study-progress";
+
+
+    /* =====================================================
+       LOAD SAVED PROGRESS
+    ===================================================== */
+
+    let savedProgress =
+        JSON.parse(localStorage.getItem(storageKey) || "{}");
+
+
+    /* =====================================================
+       SUBJECT OPEN / CLOSE
+    ===================================================== */
+
+    subjects.forEach(function (subject) {
+
+        const header =
+            subject.querySelector(".progress-subject-header");
+
+        header.addEventListener("click", function () {
+
+            subject.classList.toggle("open");
+
+        });
+
+    });
+
+
+    /* =====================================================
+       UPDATE PROGRESS
+    ===================================================== */
+
+    function updateProgress() {
+
+        let totalTopics = 0;
+        let completedTopics = 0;
+        let subjectsStarted = 0;
+
+
+        subjects.forEach(function (subject) {
+
+            const subjectName =
+                subject.dataset.subject;
+
+            const checkboxes =
+                subject.querySelectorAll(".topic-checkbox");
+
+            const percentElement =
+                subject.querySelector(".subject-percent");
+
+            const countElement =
+                subject.querySelector(".subject-count");
+
+            const fillElement =
+                subject.querySelector(".subject-progress-fill");
+
+
+            let completed = 0;
+
+
+            checkboxes.forEach(function (checkbox, index) {
+
+                const key =
+                    subjectName + "-" + index;
+
+                checkbox.checked =
+                    savedProgress[key] === true;
+
+                const topic =
+                    checkbox.closest(".topic-item");
+
+
+                if (checkbox.checked) {
+
+                    completed++;
+
+                    topic.classList.add("completed");
+
+                } else {
+
+                    topic.classList.remove("completed");
+
+                }
+
+            });
+
+
+            const total =
+                checkboxes.length;
+
+
+            const percent =
+                total === 0
+                    ? 0
+                    : Math.round((completed / total) * 100);
+
+
+            percentElement.textContent =
+                percent + "%";
+
+
+            countElement.textContent =
+                completed + " / " + total + " topics";
+
+
+            fillElement.style.width =
+                percent + "%";
+
+
+            totalTopics += total;
+
+            completedTopics += completed;
+
+
+            if (completed > 0) {
+                subjectsStarted++;
+            }
+
+        });
+
+
+        const overallPercent =
+            totalTopics === 0
+                ? 0
+                : Math.round(
+                    (completedTopics / totalTopics) * 100
+                );
+
+
+        document.getElementById(
+            "overall-percent"
+        ).textContent =
+            overallPercent + "%";
+
+
+        document.getElementById(
+            "overall-percent-small"
+        ).textContent =
+            overallPercent + "%";
+
+
+        document.getElementById(
+            "overall-fill"
+        ).style.width =
+            overallPercent + "%";
+
+
+        document.getElementById(
+            "overall-text"
+        ).textContent =
+            completedTopics +
+            " of " +
+            totalTopics +
+            " topics completed";
+
+
+        document.getElementById(
+            "completed-count"
+        ).textContent =
+            completedTopics;
+
+
+        document.getElementById(
+            "subjects-count"
+        ).textContent =
+            subjectsStarted +
+            " / " +
+            subjects.length;
+
+    }
+
+
+    /* =====================================================
+       CHECKBOX EVENTS
+    ===================================================== */
+
+    subjects.forEach(function (subject) {
+
+        const subjectName =
+            subject.dataset.subject;
+
+
+        const checkboxes =
+            subject.querySelectorAll(".topic-checkbox");
+
+
+        checkboxes.forEach(function (checkbox, index) {
+
+            checkbox.addEventListener(
+                "change",
+                function () {
+
+                    const key =
+                        subjectName + "-" + index;
+
+
+                    savedProgress[key] =
+                        checkbox.checked;
+
+
+                    localStorage.setItem(
+                        storageKey,
+                        JSON.stringify(savedProgress)
+                    );
+
+
+                    updateProgress();
+
+                }
+            );
+
+        });
+
+    });
+
+
+    /* =====================================================
+       RESET
+    ===================================================== */
+
+    document
+        .getElementById("reset-progress")
+        .addEventListener("click", function () {
+
+            const confirmed =
+                confirm(
+                    "Are you sure you want to reset all your study progress?"
+                );
+
+
+            if (!confirmed) {
+                return;
+            }
+
+
+            savedProgress = {};
+
+
+            localStorage.removeItem(
+                storageKey
+            );
+
+
+            updateProgress();
+
+        });
+
+
+    /* =====================================================
+       INITIAL UPDATE
+    ===================================================== */
+
+    updateProgress();
+
+});
+
+</script>
+
+</body>
+</html>
